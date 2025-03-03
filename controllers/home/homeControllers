@@ -95,30 +95,6 @@ class homeControllers {
     }
   };
 
-  // query_products = async (req, res) => {
-  //   try {
-  //     const queryHandler = new QueryProducts(req.query)
-  //       .categoryQuery()
-  //       .ratingQuery()
-  //       .priceQuery()
-  //       .searchQuery()
-  //       .sortByPrice();
-
-  //     const { products, totalProducts } = await queryHandler.getProducts(
-  //       productModel
-  //     );
-
-  //     res.status(200).json({
-  //       products,
-  //       totalProducts,
-  //       parPage: req.query.parPage || 10,
-  //     });
-  //   } catch (error) {
-  //     console.error("Error in query_products:", error);
-  //     res.status(500).json({ error: error.message });
-  //   }
-  // };
-
   query_products = async (req, res) => {
     try {
       const queryHandler = new QueryProducts(req.query)
@@ -131,11 +107,10 @@ class homeControllers {
       const { products, totalProducts } = await queryHandler.getProducts(
         productModel
       );
-      console.log("products category", products);
 
       res.status(200).json({
         products,
-        totalProducts,
+        totalProduct: totalProducts,
         parPage: req.query.parPage || 10,
       });
     } catch (error) {
@@ -143,6 +118,31 @@ class homeControllers {
       res.status(500).json({ error: error.message });
     }
   };
+
+  // query_products = async (req, res) => {
+  //   try {
+  //     const queryHandler = new QueryProducts(req.query)
+  //       .categoryQuery()
+  //       .ratingQuery()
+  //       .priceQuery()
+  //       .searchQuery()
+  //       .sortByPrice();
+
+  //     const { products, totalProducts } = await queryHandler.getProducts(
+  //       productModel
+  //     );
+  //     console.log("products category", products);
+
+  //     res.status(200).json({
+  //       products,
+  //       totalProducts,
+  //       parPage: req.query.parPage || 10,
+  //     });
+  //   } catch (error) {
+  //     console.error("Error in query_products:", error);
+  //     res.status(500).json({ error: error.message });
+  //   }
+  // };
 
   get_product = async (req, res) => {
     const { slug } = req.params;

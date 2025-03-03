@@ -13,11 +13,13 @@ const corsOptions = {
   origin: "http://localhost:5173", // Replace with the origin of your frontend application
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true, // Allow credentials
 };
+
+app.use(cors(corsOptions));
 
 // Use CORS middleware
 
-app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
