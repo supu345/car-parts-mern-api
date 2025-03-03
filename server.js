@@ -10,7 +10,10 @@ require("dotenv").config();
 const server = http.createServer(app);
 
 const corsOptions = {
-  origin: "http://localhost:5173", // Replace with the origin of your frontend application
+  origin: [
+    "http://localhost:5173", // Local development
+    "https://car-parts-mern-client.vercel.app", // Deployed frontend
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true, // Allow credentials
