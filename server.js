@@ -33,8 +33,9 @@ app.use("/api", require("./routes/categoryRoutes"));
 app.use("/api", require("./routes/productRoutes"));
 // app.use("/api", require("./routes/dashboard/sellerRoutes"));
 app.use("/api", require("./routes/blog/blogcategoryRoutes"));
-app.use("/api", require("./routes/home/customerAuthRoutes"));
+
 // //client
+app.use("/api", require("./routes/home/customerAuthRoutes"));
 app.use("/api/home", require("./routes/home/homeRoutes"));
 app.use("/api", require("./routes/home/cardRoutes"));
 app.get("/", (req, res) => res.send("Hello World!"));
